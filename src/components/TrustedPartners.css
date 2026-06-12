@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap");
+
+.trusted-partners {
+  position: relative;
+  min-height: 650px;
+  padding: 95px 0 80px;
+  overflow: hidden;
+  /* تحويل الخلفية إلى الأسود الصافي مع شبكة جرافيك ناعمة جداً باللون الأبيض الخافت */
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    #000000;
+  background-size: 56px 56px;
+  font-family: "Cairo", sans-serif;
+  color: #ffffff;
+}
+
+/* هالة إضاءة بيضاء خافتة وناعمة تركز على المنتصف بدلاً من الذهبي */
+.trusted-glow {
+  position: absolute;
+  top: -160px;
+  left: 50%;
+  width: 650px;
+  height: 420px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04), transparent 65%);
+  pointer-events: none;
+}
+
+.trusted-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* البادج العلوي باللون الأسود والأبيض المتباين */
+.trusted-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.trusted-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff; /* نقطة بيضاء مضيئة */
+}
+
+.trusted-title {
+  margin: 24px 0 8px;
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+/* جعل الكلمة المميزة تظهر باللون الأبيض الناصع الصريح */
+.trusted-title span {
+  background: #ffffff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.trusted-subtitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6); /* رمادي فاتح نقي وعالي الوضوح للقراءة */
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.trusted-logo {
+  display: block;
+  width: 120px;
+  height: auto;
+  margin: 26px auto 8px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.trusted-small-text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.partners-marquee-wrapper {
+  position: relative;
+  z-index: 2;
+  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.partners-row {
+  width: 100%;
+  overflow: hidden;
+}
+
+.partners-track {
+  display: flex;
+  width: max-content;
+  gap: 38px;
+}
+
+.row-one:hover .partners-track,
+.row-two:hover .partners-track {
+  animation-play-state: paused;
+}
+
+.track-left {
+  animation: marquee-left 32s linear infinite;
+}
+
+.track-right {
+  animation: marquee-right 34s linear infinite;
+}
+
+/* الكروت الداكنة المتباينة بدقة فوق الخلفية السوداء للموقع */
+.partner-card {
+  min-width: 230px;
+  height: 78px;
+  padding: 0 22px;
+  border-radius: 14px;
+  /* درجة أسود كربوني مميزة تفصل الكارت عن الصفحة */
+  background: #0b0b0b;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: ltr;
+  transition: 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* تأثير التمرير الفاخر (Hover): ينعكس بالكامل للون الأبيض */
+.partner-card:hover {
+  transform: translateY(-7px);
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 22px 50px rgba(255, 255, 255, 0.1);
+}
+
+.partner-name {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: 0.35s ease;
+}
+
+/* عند الهوفر اسم الشركة يتحول للأسود */
+.partner-card:hover .partner-name {
+  color: #000000;
+}
+
+/* تغيير البادج الصغير الخاص بالحروف الأولى */
+.partner-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  /* تدرج رمادي داكن فاخر ومتناسق */
+  background: linear-gradient(135deg, #1c1c1c, #111111);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: 0.35s ease;
+}
+
+/* عند الهوفر البادج الصغير يصبح أسود تماماً ليتباين مع الكارد الأبيض */
+.partner-card:hover .partner-badge {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-33.333%); }
+  to { transform: translateX(0); }
+}
+
+/* التجاوب والتوافق مع الشاشات المختلفة */
+@media (max-width: 992px) {
+  .trusted-partners {
+    min-height: 620px;
+    padding: 80px 0 70px;
+  }
+
+  .partners-track {
+    gap: 26px;
+  }
+
+  .partner-card {
+    min-width: 205px;
+    height: 72px;
+  }
+}
+
+@media (max-width: 640px) {
+  .trusted-partners {
+    min-height: 580px;
+    padding: 70px 0 60px;
+  }
+
+  .trusted-title {
+    font-size: 42px;
+  }
+
+  .trusted-subtitle {
+    font-size: 14px;
+    padding: 0 20px;
+  }
+
+  .trusted-logo {
+    width: 78px;
+  }
+
+  .partners-marquee-wrapper {
+    margin-top: 55px;
+    gap: 22px;
+  }
+
+  .partners-track {
+    gap: 18px;
+  }
+
+  .partner-card {
+    min-width: 172px;
+    height: 66px;
+    padding: 0 16px;
+  }
+
+  .partner-name {
+    font-size: 12px;
+  }
+
+  .partner-badge {
+    width: 38px;
+    height: 38px;
+    font-size: 10px;
+  }
+}

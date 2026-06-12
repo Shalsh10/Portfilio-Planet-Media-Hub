@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap");
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: "Cairo", sans-serif;
+  background-image: url("../assets/images/Image (Hero background).png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.8) 50%,
+      rgba(0, 0, 0, 0.96) 100%
+    ),
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.03),
+      rgba(0, 0, 0, 0.8)
+    );
+  z-index: 1;
+}
+
+/* Navbar */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  height: 70px;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.08);
+}
+
+/* زر تغيير اللغة الجديد الفخم المعتمد للهوية السريعة */
+.lang-toggle-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 40px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lang-toggle-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-links button:hover {
+  color: #ffffff;
+}
+
+.nav-cta {
+  border: 1px solid #ffffff;
+  outline: none;
+  background: #ffffff;
+  color: #000000;
+  padding: 12px 25px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-3px);
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Hero Content */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 70px);
+  padding: 90px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-badge {
+  margin-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 18px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.hero-badge span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.hero-content h1 {
+  margin: 28px 0 14px;
+  font-size: clamp(48px, 6vw, 85px);
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-shadow: 0 12px 35px rgba(0, 0, 0, 0.42);
+}
+
+.gold {
+  color: #ffffff;
+}
+
+.hero-content p {
+  margin: 0;
+  max-width: 760px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 18px;
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+.hero-content p span {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+/* Buttons */
+
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.primary-btn,
+.secondary-btn {
+  min-width: 165px;
+  height: 55px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.primary-btn {
+  border: 1px solid #ffffff;
+  color: #000000;
+  background: #ffffff;
+}
+
+.primary-btn:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(8px);
+}
+
+/* ضبط السهم ليتناسب مع الإتجاهين تلقائياً دون تداخل الدوران */
+body[dir="rtl"] .secondary-btn span {
+  margin-right: 7px;
+  display: inline-block;
+}
+body[dir="ltr"] .secondary-btn span {
+  margin-left: 7px;
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
+.secondary-btn:hover {
+  transform: translateY(-4px);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-4px);
+}
+
+/* Stats */
+
+.stats {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+.stat-card {
+  width: 130px;
+  height: 92px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-card h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 29px;
+  font-weight: 900;
+}
+
+.stat-card p {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+}
+
+/* Scroll Button */
+
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: #ffffff;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: 0.3s ease;
+}
+
+/* جعل سهم الـ Scroll Top يذهب للطرف الأخر تلقائياً في الإنجليزية لعدم حجب محتوى مهم */
+body[dir="ltr"] .scroll-top {
+  left: auto;
+  right: 30px;
+}
+
+.scroll-top:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 48px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+}

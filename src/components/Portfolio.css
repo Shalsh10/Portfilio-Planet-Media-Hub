@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap");
+
+.portfolio-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 90px 24px 120px;
+  /* الخلفية سوداء ملكية صافية تتناسب مع الهوية */
+  background: #000000;
+  font-family: "Cairo", sans-serif;
+  direction: rtl;
+  overflow: hidden;
+}
+
+.portfolio-container {
+  max-width: 1210px;
+  margin: 0 auto;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.portfolio-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  /* بادج داكن متناسق مع الخلفية */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.portfolio-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff; /* النقطة باللون الأبيض */
+}
+
+.portfolio-header h2 {
+  margin: 18px 0 8px;
+  color: #ffffff; /* عنوان أبيض ناصع */
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.portfolio-header h2 span {
+  color: #ffffff;
+}
+
+.portfolio-header p {
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.6); /* رمادي فاتح مريح للعين */
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.portfolio-logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  margin-top: 18px;
+  opacity: 0.8; /* زيادة الشفافية قليلاً ليظهر اللوجو الأبيض بوضوح */
+}
+
+/* الأزرار / الفلاتر */
+.portfolio-filters {
+  margin: 34px auto 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.portfolio-filters button {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+/* عند تمرير الماوس أو تفعيل الفلتر ينعكس للأبيض الناصع */
+.portfolio-filters button:hover,
+.portfolio-filters button.active {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+/* الكارد البورتفوليو */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  /* كارد أسود بدرجة دقيقة جداً ليفصل عن خلفية الصفحة الأساسية */
+  background: #0b0b0b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: .35s ease;
+}
+
+/* تأثير الـ Hover على الكارد */
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.3); /* توهج الحد الخارجي باللون الأبيض */
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+.project-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  overflow: hidden;
+  background: #000000;
+}
+
+.project-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9; /* تعتيم بسيط جداً للصور لتماشي المود المظلم */
+  transition: .45s ease;
+}
+
+.project-card:hover .project-image-wrapper img {
+  transform: scale(1.08);
+  opacity: 1; /* وضوح كامل للصورة عند الهوفر */
+}
+
+/* تصنيف المشروع داخل الصورة */
+.project-category {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  padding: 6px 14px;
+  border-radius: 999px;
+  /* خلفية بيضاء بتكست أسود داخل الصورة لتباين قوي */
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
+  font-size: 11px;
+  font-weight: 800;
+  backdrop-filter: blur(10px);
+}
+
+/* الجزء السفلي من الكارد */
+.project-card-body {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30%;
+  background: #0b0b0b; /* متناسق مع جسم الكارد الداكن */
+}
+
+.project-card-body h3 {
+  margin: 0 0 8px;
+  color: #ffffff; /* اسم المشروع بالأبيض */
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-short-desc {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.55); /* وصف المشروع بلون رمادي ناعم */
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+/* زر عرض المزيد */
+.show-more-btn {
+  color: #ffffff; /* رابط أبيض */
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: .3s ease;
+}
+
+.show-more-btn:hover {
+  color: rgba(255, 255, 255, 0.7);
+  transform: translateX(-4px); /* حركة ذكية متناسقة مع اتجاه الـ RTL */
+}
+
+/* التصميم المتجاوب للشاشات (Responsive) */
+@media (max-width: 992px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-section {
+    padding: 70px 18px 90px;
+  }
+
+  .portfolio-filters {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    height: 390px;
+  }
+}
