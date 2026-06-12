@@ -20,6 +20,8 @@ function AboutSection() {
   return (
     <section id="about" className="about-section">
       <div className="about-container">
+        
+        {/* ================= CONTENT SIDE ================= */}
         <div className="about-content">
           <span className="about-badge">{t("aboutBadge")}</span>
 
@@ -38,29 +40,37 @@ function AboutSection() {
             {/* شبكة شركاء قوية */}
             <div className="feature-card">
               <div className="feature-icon">☊</div>
-              <h3>{t("aboutCard2Title")}</h3>
-              <p>{t("aboutCard2Desc")}</p>
+              <div className="feature-text">
+                <h3>{t("aboutCard2Title")}</h3>
+                <p>{t("aboutCard2Desc")}</p>
+              </div>
             </div>
 
             {/* إدارة كاملة 360 */}
             <div className="feature-card">
               <div className="feature-icon">✓</div>
-              <h3>{t("aboutCard1Title")}</h3>
-              <p>{t("aboutCard1Desc")}</p>
+              <div className="feature-text">
+                <h3>{t("aboutCard1Title")}</h3>
+                <p>{t("aboutCard1Desc")}</p>
+              </div>
             </div>
 
             {/* احترافية موثوقة */}
             <div className="feature-card">
               <div className="feature-icon">♙</div>
-              <h3>{t("aboutCard4Title")}</h3>
-              <p>{t("aboutCard4Desc")}</p>
+              <div className="feature-text">
+                <h3>{t("aboutCard4Title")}</h3>
+                <p>{t("aboutCard4Desc")}</p>
+              </div>
             </div>
 
             {/* حلول مبتكرة */}
             <div className="feature-card">
               <div className="feature-icon">◎</div>
-              <h3>{t("aboutCard3Title")}</h3>
-              <p>{t("aboutCard3Desc")}</p>
+              <div className="feature-text">
+                <h3>{t("aboutCard3Title")}</h3>
+                <p>{t("aboutCard3Desc")}</p>
+              </div>
             </div>
           </div>
 
@@ -72,17 +82,23 @@ function AboutSection() {
           </button>
         </div>
 
+        {/* ================= IMAGE SIDE ================= */}
         <div className="about-image-box">
-          <img src={sectionImg} alt="Planet Media Hub meeting" />
-          <div className="exp-badge">
-            <strong>+10</strong>
-            <span>{t("aboutYearsExp")}</span>
-          </div>
-          <div className="rate-badge">
-            <strong>100%</strong>
-            <span>{t("aboutClientsSat")}</span>
+          <div className="image-wrapper">
+            <img src={sectionImg} alt="Planet Media Hub meeting" />
+            
+            <div className="exp-badge">
+              <strong>+10</strong>
+              <span>{t("aboutYearsExp")}</span>
+            </div>
+            
+            <div className="rate-badge">
+              <strong>100%</strong>
+              <span>{t("aboutClientsSat")}</span>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );

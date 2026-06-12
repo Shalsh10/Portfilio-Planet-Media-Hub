@@ -6,7 +6,7 @@ const API_BASE_URL = "https://plant.solvextechnology.net/public";
 
 function ContactSection() {
   const { t, i18n } = useTranslation();
-  const currentLang = i18n.language; // تحديد اللغة الحالية بدقة
+  const currentLang = i18n.language;
 
   const [settings, setSettings] = useState({
     email: "",
@@ -168,15 +168,15 @@ function ContactSection() {
           <div className="contact-info">
             <div className="contact-info-card">
               <div className="contact-icon">📞</div>
-              <div>
+              <div className="info-card-text">
                 <h4>{t("contactCallUs")}</h4>
-                <p style={{ direction: "ltr", textAlign: "right" }}>{settings.phone}</p>
+                <p className="contact-phone-number">{settings.phone}</p>
               </div>
             </div>
 
             <div className="contact-info-card">
               <div className="contact-icon">✉</div>
-              <div>
+              <div className="info-card-text">
                 <h4>{t("contactEmail")}</h4>
                 <p>{settings.email}</p>
               </div>
@@ -184,7 +184,7 @@ function ContactSection() {
 
             <div className="contact-info-card">
               <div className="contact-icon">📍</div>
-              <div>
+              <div className="info-card-text">
                 <h4>{t("contactLocation")}</h4>
                 <p>{currentLang === "en" ? "Beni Suef Governorate - East of the Nile - 1st District - Above Despacito Cafe" : "محافظة بني سويف - شرق النيل - الحي الاول - اعلي كافية ديسباسيتو"}</p>
               </div>
@@ -192,7 +192,7 @@ function ContactSection() {
 
             <div className="contact-info-card">
               <div className="contact-icon">⏱</div>
-              <div>
+              <div className="info-card-text">
                 <h4>{t("contactHours")}</h4>
                 <p>{currentLang === "en" ? "Sunday - Thursday: 9 AM - 6 PM" : "الأحد - الخميس: 9ص - 6م"}</p>
               </div>

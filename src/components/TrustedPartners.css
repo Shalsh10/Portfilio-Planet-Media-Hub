@@ -2,10 +2,10 @@
 
 .trusted-partners {
   position: relative;
-  min-height: 650px;
-  padding: 95px 0 80px;
+  min-height: 600px;
+  padding: 100px 0 90px;
   overflow: hidden;
-  /* تحويل الخلفية إلى الأسود الصافي مع شبكة جرافيك ناعمة جداً باللون الأبيض الخافت */
+  /* خلفية الـ Grid الاحترافية النظيفة */
   background:
     linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
@@ -13,17 +13,19 @@
   background-size: 56px 56px;
   font-family: "Cairo", sans-serif;
   color: #ffffff;
+  width: 100%;
 }
 
-/* هالة إضاءة بيضاء خافتة وناعمة تركز على المنتصف بدلاً من الذهبي */
+/* هالة الإضاءة المنسقة للمنتصف */
 .trusted-glow {
   position: absolute;
   top: -160px;
   left: 50%;
-  width: 650px;
-  height: 420px;
+  width: 100%;
+  max-width: 700px;
+  height: 450px;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.04), transparent 65%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 70%);
   pointer-events: none;
 }
 
@@ -31,9 +33,10 @@
   position: relative;
   z-index: 2;
   text-align: center;
+  padding: 0 20px;
 }
 
-/* البادج العلوي باللون الأسود والأبيض المتباين */
+/* البادج العلوي المتباين */
 .trusted-badge {
   display: inline-flex;
   align-items: center;
@@ -52,213 +55,226 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #ffffff; /* نقطة بيضاء مضيئة */
+  background: #ffffff;
 }
 
 .trusted-title {
-  margin: 24px 0 8px;
-  font-size: clamp(42px, 5vw, 68px);
+  margin: 20px 0 12px;
+  font-size: clamp(32px, 5vw, 56px); /* تحجيم مرن مذهل لكل الشاشات */
   font-weight: 900;
-  line-height: 1.15;
+  line-height: 1.2;
   color: #ffffff;
 }
 
-/* جعل الكلمة المميزة تظهر باللون الأبيض الناصع الصريح */
 .trusted-title span {
-  background: #ffffff;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
+  display: inline-block;
+  margin: 0 8px;
+  /* إزالة الـ Gradient لثبات الوضوح، أو يمكنك تخصيص لون نص ناصع */
 }
 
 .trusted-subtitle {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.6); /* رمادي فاتح نقي وعالي الوضوح للقراءة */
-  font-size: 17px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(14px, 1.8vw, 17px);
   font-weight: 600;
+  max-width: 600px;
+  line-height: 1.6;
 }
 
-.trusted-logo {
-  display: block;
-  width: 120px;
-  height: auto;
-  margin: 26px auto 8px;
-  object-fit: contain;
-  opacity: 0.9;
-}
-
-.trusted-small-text {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 15px;
-  font-weight: 600;
-}
-
+/* الشريحة الحاضنة للأشرطة المتحركة */
 .partners-marquee-wrapper {
   position: relative;
   z-index: 2;
-  margin-top: 75px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
+  width: 100%;
 }
 
 .partners-row {
   width: 100%;
   overflow: hidden;
+  display: flex;
 }
 
 .partners-track {
   display: flex;
   width: max-content;
-  gap: 38px;
+  gap: 30px;
 }
 
+/* توقف الأنيميشن مؤقتاً عند تمرير الماوس بالـ Desktop */
 .row-one:hover .partners-track,
 .row-two:hover .partners-track {
   animation-play-state: paused;
 }
 
 .track-left {
-  animation: marquee-left 32s linear infinite;
+  animation: marquee-left 28s linear infinite;
 }
 
 .track-right {
-  animation: marquee-right 34s linear infinite;
+  animation: marquee-right 28s linear infinite;
 }
 
-/* الكروت الداكنة المتباينة بدقة فوق الخلفية السوداء للموقع */
+/* تصميم كروت الشركات الفاخرة */
 .partner-card {
-  min-width: 230px;
-  height: 78px;
-  padding: 0 22px;
-  border-radius: 14px;
-  /* درجة أسود كربوني مميزة تفصل الكارت عن الصفحة */
-  background: #0b0b0b;
+  min-width: 240px;
+  height: 80px;
+  padding: 0 24px;
+  border-radius: 16px;
+  background: #0d0d0d;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(14px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  direction: ltr;
-  transition: 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  /* ثبات اتجاه الكارت الداخلي لعدم تشوه النصوص المختصرة */
+  direction: ltr; 
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* تأثير التمرير الفاخر (Hover): ينعكس بالكامل للون الأبيض */
 .partner-card:hover {
-  transform: translateY(-7px);
+  transform: translateY(-6px);
   background: #ffffff;
   border-color: #ffffff;
-  box-shadow: 0 22px 50px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.12);
 }
 
 .partner-name {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
   font-weight: 700;
   white-space: nowrap;
-  transition: 0.35s ease;
+  transition: color 0.3s ease;
 }
 
-/* عند الهوفر اسم الشركة يتحول للأسود */
+html[dir="rtl"] .partner-name {
+  font-family: "Cairo", sans-serif;
+}
+
 .partner-card:hover .partner-name {
   color: #000000;
 }
 
-/* تغيير البادج الصغير الخاص بالحروف الأولى */
 .partner-badge {
-  width: 46px;
-  height: 46px;
-  border-radius: 10px;
-  /* تدرج رمادي داكن فاخر ومتناسق */
-  background: linear-gradient(135deg, #1c1c1c, #111111);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1f1f1f, #121212);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-  font-weight: 900;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transition: 0.35s ease;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
 }
 
-/* عند الهوفر البادج الصغير يصبح أسود تماماً ليتباين مع الكارد الأبيض */
 .partner-card:hover .partner-badge {
   background: #000000;
   color: #ffffff;
   border-color: #000000;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* حركات الـ Marquee الموزونة هندسياً بالتكرار الرباعي */
 @keyframes marquee-left {
-  from { transform: translateX(0); }
-  to { transform: translateX(-33.333%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @keyframes marquee-right {
-  from { transform: translateX(-33.333%); }
-  to { transform: translateX(0); }
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
-/* التجاوب والتوافق مع الشاشات المختلفة */
-@media (max-width: 992px) {
+/* ==========================================================================
+   💻 Breakpoints التجاوب البروفيشنال مع الشاشات المتعددة
+   ========================================================================== */
+
+/* --- 💻 الشاشات المتوسطة واللابتوب (1024px وأقل) --- */
+@media (max-width: 1024px) {
   .trusted-partners {
-    min-height: 620px;
-    padding: 80px 0 70px;
+    padding: 80px 0 75px;
   }
-
-  .partners-track {
-    gap: 26px;
+  .partners-marquee-wrapper {
+    margin-top: 50px;
+    gap: 20px;
   }
-
   .partner-card {
-    min-width: 205px;
-    height: 72px;
+    min-width: 210px;
+    height: 74px;
+    padding: 0 18px;
+  }
+  .partners-track {
+    gap: 20px;
   }
 }
 
-@media (max-width: 640px) {
+/* --- 📑 شاشات التابلت والأيباد (768px وأقل) --- */
+@media (max-width: 768px) {
   .trusted-partners {
-    min-height: 580px;
     padding: 70px 0 60px;
   }
-
-  .trusted-title {
-    font-size: 42px;
-  }
-
-  .trusted-subtitle {
-    font-size: 14px;
-    padding: 0 20px;
-  }
-
-  .trusted-logo {
-    width: 78px;
-  }
-
   .partners-marquee-wrapper {
-    margin-top: 55px;
-    gap: 22px;
+    margin-top: 45px;
+    gap: 16px;
   }
-
-  .partners-track {
-    gap: 18px;
-  }
-
   .partner-card {
-    min-width: 172px;
-    height: 66px;
-    padding: 0 16px;
+    min-width: 190px;
+    height: 68px;
   }
-
   .partner-name {
-    font-size: 12px;
+    font-size: 13px;
   }
-
   .partner-badge {
     width: 38px;
     height: 38px;
+    font-size: 11px;
+    border-radius: 10px;
+  }
+  /* تسريع حركة الـ Marquee قليلاً على التابلت والموبايل لصغر حجم الكروت */
+  .track-left, .track-right {
+    animation-duration: 22s;
+  }
+}
+
+/* --- 📱 شاشات الهواتف والموبايل (480px وأقل) --- */
+@media (max-width: 480px) {
+  .trusted-partners {
+    padding: 60px 0 50px;
+  }
+  .partners-marquee-wrapper {
+    margin-top: 35px;
+    gap: 12px;
+  }
+  .partner-card {
+    min-width: 165px;
+    height: 62px;
+    padding: 0 14px;
+    border-radius: 12px;
+  }
+  .partner-name {
+    font-size: 12px;
+  }
+  .partner-badge {
+    width: 34px;
+    height: 34px;
     font-size: 10px;
+    border-radius: 8px;
+  }
+  .partners-track {
+    gap: 12px;
+  }
+  /* إلغاء تأثير توقف الحركة عند اللمس في الموبايل لعدم إرباك تصفح المستخدم اللمسي */
+  .row-one:hover .partners-track,
+  .row-two:hover .partners-track {
+    animation-play-state: running;
   }
 }

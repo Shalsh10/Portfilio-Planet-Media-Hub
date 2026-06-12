@@ -26,7 +26,6 @@ function EventShowcase() {
       const response = await fetch(`${API_BASE_URL}/api/projects/${id}`);
       const result = await response.json();
       
-      // استخراج البيانات بناءً على هيكل الـ API
       const projectData = result.data || result;
       console.log("Fetched Project Data =>", projectData);
       
@@ -67,7 +66,7 @@ function EventShowcase() {
 
   // ================= LOADING =================
   if (loading) {
-    return <div className="event-loading">{t("currentLang") === "en" ? "Loading project details..." : "جاري تحميل المشروع..."}</div>;
+    return <div className="event-loading">{currentLang === "en" ? "Loading project details..." : "جاري تحميل المشروع..."}</div>;
   }
 
   return (
@@ -77,15 +76,16 @@ function EventShowcase() {
         <a href="#portfolio" onClick={handleBackToPortfolio}>
           {t("navPortfolio")}
         </a>
-        <span> / </span>
-        <span>
+        <span className="breadcrumb-separator"> / </span>
+        <span className="breadcrumb-current">
           {project?.title || (currentLang === "en" ? "Loading title..." : "تحميل العنوان...")}
         </span>
       </div>
 
       {/* ================= MAIN SECTION ================= */}
       <div className="event-main-container">
-        {/* ================= RIGHT INFO ================= */}
+        
+        {/* ================= INFO SECTION ================= */}
         <div className="event-info">
           <span className="event-badge">
             {project?.department?.name || (currentLang === "en" ? "General" : "بدون قسم")}
@@ -95,7 +95,7 @@ function EventShowcase() {
 
           <div className="event-meta">
             {(project?.project_date || project?.created_at) && (
-              <div>
+              <div className="meta-item">
                 <FiCalendar />
                 <span>
                   {project?.project_date || project?.created_at}
@@ -104,7 +104,7 @@ function EventShowcase() {
             )}
 
             {project?.location && (
-              <div>
+              <div className="meta-item">
                 <FiMapPin />
                 <span>{project.location}</span>
               </div>
@@ -124,7 +124,7 @@ function EventShowcase() {
           </div>
         </div>
 
-        {/* ================= LEFT SLIDER ================= */}
+        {/* ================= SLIDER SECTION ================= */}
         <div className="event-slider">
           <div className="main-image">
             {images[activeImage] ? (
@@ -159,7 +159,7 @@ function EventShowcase() {
           <div className="gallery-grid">
             {images.map((img, index) => (
               <div className="gallery-card" key={index}>
-                <img src={img} alt="" />
+                <img src={img} alt="" loading="lazy" />
               </div>
             ))}
           </div>

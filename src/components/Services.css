@@ -1,41 +1,42 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght=400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap");
 
 .services-section {
-  width: 100%;
-  min-height: 100vh;
-  padding: 110px 24px 120px;
-  /* خلفية الموقع بيضاء تماماً بنقاء عالي */
-  background: 
-    radial-gradient(circle at top center, #ffffff, transparent 40%),
-    linear-gradient(180deg, #ffffff 0%, #fcfcfc 55%, #f7f7f7 100%);
+  position: relative;
+  padding: 100px 0;
+  background: #000000; /* تماشياً مع الخلفية السوداء الفخمة للموقع */
   font-family: "Cairo", sans-serif;
-  color: #000000;
-  direction: rtl;
+  color: #ffffff;
   overflow: hidden;
+  width: 100%;
 }
 
 .services-container {
-  max-width: 1220px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 0 8%; /* مسافة أمان جانبية متناسقة مع الهيرو */
+  box-sizing: border-box;
 }
 
+/* --- Header --- */
 .services-header {
   text-align: center;
-  margin-bottom: 64px;
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
 }
 
 .services-badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
-  padding: 8px 18px;
+  padding: 8px 20px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  color: #000000;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .services-badge::before {
@@ -43,191 +44,199 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #000000;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
 }
 
 .services-header h2 {
-  margin: 22px 0 12px;
-  color: #000000;
-  font-size: clamp(34px, 5vw, 56px);
+  margin: 20px 0 14px;
+  font-size: clamp(32px, 4.5vw, 54px); /* حجم خط ديناميكي مرن */
   font-weight: 900;
   line-height: 1.25;
-  letter-spacing: -1px;
+}
+
+.services-header h2 span {
+  color: #ffffff;
+  display: inline-block;
+  margin: 0 8px;
 }
 
 .services-header p {
-  margin: 0 auto;
-  max-width: 680px;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 16px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(14px, 1.6vw, 17px);
+  line-height: 1.7;
   font-weight: 500;
-  line-height: 1.9;
 }
 
-.services-logo {
-  display: block;
-  width: 120px;
-  height: auto;
-  object-fit: contain;
-  margin: 24px auto 0;
-  opacity: 1;
-  filter: invert(1) brightness(0); /* تحويل اللوجو الأبيض لأسود */
-}
-
+/* --- Services Grid --- */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
+  /* توزيع تلقائي ذكي: ينشئ أعمدة لا تقل عن 320px وتملأ المساحة المتاحة بالتساوي */
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  width: 100%;
 }
 
-/* التعديل الجذري هنا: كاردات باللون الأسود النقي الصافي */
+/* --- Service Card --- */
 .service-card {
   position: relative;
-  min-height: 260px;
-  padding: 34px 32px 30px;
-  border-radius: 16px;
-
-  /* أسود صافي نقي 100% بدون أي تداخلات ملونة */
-  background: linear-gradient(135deg, #000000 0%, #050505 100%);
-  
-  /* حد رمادي خافت جداً يحدد الكارد الأسود فوق الخلفية البيضاء */
-  border: 1px solid rgba(255, 255, 255, 0.07);
-
-  /* ظلال ناعمة تعطي عمق وبروز للكارد */
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-
-  backdrop-filter: blur(14px);
-  overflow: hidden;
-  transition: 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* محاذاة العناصر للبداية (تدعم اتجاه اللغة) */
+  text-align: start;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
-.service-card::before {
-  content: "";
-  position: absolute;
-  left: -26px;
-  bottom: -26px;
-  width: 96px;
-  height: 96px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.02); /* لمسة إضاءة خفيفة جداً في الزاوية */
-  transition: 0.35s ease;
+/* دعم قلب اتجاه المحاذاة حسب لغة الموقع تلقائياً */
+html[dir="rtl"] .service-card {
+  align-items: flex-start;
+  text-align: right;
+}
+html[dir="ltr"] .service-card {
+  align-items: flex-start;
+  text-align: left;
 }
 
-/* تأثير التمرير (Hover) */
 .service-card:hover {
   transform: translateY(-8px);
-  /* يظهر حد أبيض صريح عند الوقوف بالماوس ليعكس هوية بلانت */
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
 }
 
-.service-card:hover::before {
-  background: rgba(255, 255, 255, 0.04);
-  transform: scale(1.12);
-}
-
-.service-card-badge {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: #ffffff; /* بادج أبيض ناصع للكتابة السوداء */
-  color: #000000;
-  font-size: 10px;
-  font-weight: 800;
-}
-
-/* الأيقونات */
 .service-icon {
-  width: 54px;
-  height: 54px;
-  margin-right: auto;
-  margin-bottom: 30px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
+  font-size: 35px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  transition: 0.35s ease;
+  width: 65px;
+  height: 65px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
 }
 
 .service-card:hover .service-icon {
-  transform: rotate(-6deg) scale(1.08);
-  background: #ffffff;
-  color: #000000; /* تنعكس الألوان عند الهوفر */
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
-/* النصوص داخل الكارد */
 .service-card h3 {
-  margin: 0 0 12px;
-  color: #ffffff; /* نصوص بيضاء ناصعة حادة التباين */
-  font-size: 21px;
+  margin: 0 0 12px 0;
+  font-size: 20px;
   font-weight: 800;
-  line-height: 1.45;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover h3 {
+  color: #000000;
 }
 
 .service-card p {
   margin: 0;
-  max-width: 330px;
-  color: rgba(255, 255, 255, 0.75); /* رمادي فاتح نقي ومريح جداً للقراءة */
-  font-size: 14.5px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
   font-weight: 500;
-  line-height: 1.85;
+  transition: color 0.3s ease;
 }
 
-/* الرابط السفلي */
-.service-link {
+.service-card:hover p {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* البادج الصغير فوق الكارت */
+.service-card-badge {
   position: absolute;
-  right: 32px;
-  bottom: 26px;
-  padding-top: 18px;
-  width: calc(100% - 64px);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  top: 25px;
+  /* ضبط موضع البادج ليدعم اليمين واليسار بشكل هندسي دقيق حسب اللغة */
+  right: 25px;
+  background: linear-gradient(135deg, #222, #11);
   color: #ffffff;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 800;
-  transition: 0.3s ease;
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
-.service-link:hover {
-  color: rgba(255, 255, 255, 0.7);
-  transform: translateX(-4px);
+html[dir="rtl"] .service-card-badge {
+  right: auto;
+  left: 25px;
 }
 
-/* التجاوب (Responsive Design) */
-@media (max-width: 992px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .services-section {
-    padding: 90px 20px;
-  }
+.service-card:hover .service-card-badge {
+  background: #000000;
+  border-color: #000000;
 }
 
+/* ==========================================================================
+   💻 Breakpoints التجاوب مع شاشات الأجهزة الذكية المختلفة
+   ========================================================================== */
+
+/* --- 💻 الشاشات المتوسطة واللابتوب (1024px وأقل) --- */
+@media (max-width: 1024px) {
+  .services-section { padding: 80px 0; }
+  .services-container { padding: 0 5%; }
+  .services-header { margin-bottom: 45px; }
+  .services-grid { gap: 24px; }
+  .service-card { padding: 35px 25px; }
+}
+
+/* --- 📑 شاشات التابلت والأيباد (768px وأقل) --- */
 @media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .services-section { padding: 70px 0; }
+  .services-header { margin-bottom: 40px; }
+  /* تقليص الحد الأدنى للكارت لكي يتناسب كارتين في الصف على شاشة التابلت */
+  .services-grid { 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px; 
   }
+  .service-card h3 { font-size: 18px; }
 }
 
-@media (max-width: 640px) {
-  .services-grid {
+/* --- 📱 شاشات الهواتف والموبايل (480px وأقل) --- */
+@media (max-width: 480px) {
+  .services-section { padding: 60px 0; }
+  .services-container { padding: 0 6%; }
+  .services-header { margin-bottom: 30px; }
+  
+  /* تحويل الشبكة لعمود واحد صريح ومريح جداً للموبايل */
+  .services-grid { 
     grid-template-columns: 1fr;
+    gap: 16px;
   }
-  .services-header {
-    margin-bottom: 44px;
+  
+  .service-card { 
+    padding: 30px 20px; 
+    border-radius: 16px;
   }
-  .service-card {
-    min-height: 240px;
-    padding: 30px 24px 28px;
+  
+  .service-icon {
+    font-size: 30px;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 18px;
   }
-  .service-link {
-    right: 24px;
-    width: calc(100% - 48px);
+  
+  .service-card-badge {
+    top: 20px;
+    right: 20px;
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+  
+  html[dir="rtl"] .service-card-badge {
+    right: auto;
+    left: 20px;
   }
 }

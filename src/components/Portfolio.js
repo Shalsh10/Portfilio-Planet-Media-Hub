@@ -11,7 +11,6 @@ function Portfolio() {
 
   const [projects, setProjects] = useState([]);
   const [departments, setDepartments] = useState([]);
-  // تعديل الفلتر النشط ليعتمد على الـ id لضمان الاستقرار مع اللغات
   const [activeFilterId, setActiveFilterId] = useState("all");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -66,7 +65,6 @@ function Portfolio() {
     return project.banner_image_url;
   };
 
-  // بناء مصفوفة الفلاتر مع الترجمة الديناميكية للأقسام المستقبلية
   const filters = [
     { id: "all", name: t("portfolioFilterAll") },
     ...departments.map((dept) => ({
@@ -89,17 +87,19 @@ function Portfolio() {
           <p>{t("portfolioDesc")}</p>
         </div>
 
-        {/* Filters */}
-        <div className="portfolio-filters">
-          {filters.map((filter) => (
-            <button
-              key={filter.id}
-              className={activeFilterId === filter.id ? "active" : ""}
-              onClick={() => handleFilter(filter)}
-            >
-              {filter.name}
-            </button>
-          ))}
+        {/* Filters Wrapper */}
+        <div className="portfolio-filters-wrapper">
+          <div className="portfolio-filters">
+            {filters.map((filter) => (
+              <button
+                key={filter.id}
+                className={activeFilterId === filter.id ? "active" : ""}
+                onClick={() => handleFilter(filter)}
+              >
+                {filter.name}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Loading & Error States */}
@@ -110,17 +110,16 @@ function Portfolio() {
         {!loading && (
           <div className="portfolio-grid">
             {projects.map((project) => {
-              // استخراج النصوص بشكل ديناميكي تبعا للغة الحالية
               const projectTitle = currentLang === "en" ? (project.title_en || project.title) : (project.title_ar || project.title);
               const projectDept = currentLang === "en" ? (project.department?.name_en || project.department?.name) : (project.department?.name_ar || project.department?.name);
               const projectDesc = currentLang === "en" ? (project.details_en || project.description_en || project.details || project.description) : (project.details_ar || project.description_ar || project.details || project.description);
 
               return (
-                <div className="project-card" key={project.id} dir={currentLang === "en" ? "ltr" : "rtl"}>
+                <div className="project-card" key={project.id}>
                   
                   {/* الجزء العلوي: الصورة والتاغ */}
                   <div className="project-image-wrapper">
-                    <img src={getProjectImage(project)} alt={projectTitle} />
+                    <img src={getProjectImage(project)} alt={projectTitle} loading="lazy" />
                     <span className="project-category">
                       {projectDept || t("portfolioDefaultCategory")}
                     </span>

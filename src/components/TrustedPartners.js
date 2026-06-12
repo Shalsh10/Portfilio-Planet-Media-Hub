@@ -67,17 +67,9 @@ function TrustedPartners() {
         >
           {t("trustedSubtitle")}
         </motion.p>
-
-        <motion.p
-          className="trusted-small-text"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.38 }}
-          viewport={{ once: true }}
-        >
-        </motion.p>
       </div>
 
+      {/* شريط الشركاء المتحرك اللانهائي */}
       <motion.div
         className="partners-marquee-wrapper"
         initial={{ opacity: 0, y: 35 }}
@@ -85,21 +77,22 @@ function TrustedPartners() {
         transition={{ duration: 0.8, delay: 0.45 }}
         viewport={{ once: true }}
       >
+        {/* الصف الأول: يتحرك لليسار */}
         <div className="partners-row row-one">
           <div className="partners-track track-left">
-            {[...firstRow, ...firstRow, ...firstRow].map((partner, index) => (
+            {/* تكرار المصفوفة 4 مرات لضمان عدم حدوث فراغات بيضاء في شاشات الـ UltraWide الكبيرة */}
+            {[...firstRow, ...firstRow, ...firstRow, ...firstRow].map((partner, index) => (
               <PartnerCard key={`row1-${index}`} partner={partner} />
             ))}
           </div>
         </div>
 
+        {/* الصف الثاني: يتحرك لليمين */}
         <div className="partners-row row-two">
           <div className="partners-track track-right">
-            {[...secondRow, ...secondRow, ...secondRow].map(
-              (partner, index) => (
-                <PartnerCard key={`row2-${index}`} partner={partner} />
-              ),
-            )}
+            {[...secondRow, ...secondRow, ...secondRow, ...secondRow].map((partner, index) => (
+              <PartnerCard key={`row2-${index}`} partner={partner} />
+            ))}
           </div>
         </div>
       </motion.div>

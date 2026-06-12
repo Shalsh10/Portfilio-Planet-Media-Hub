@@ -6,11 +6,8 @@ function ServiceCard({ icon, badge, title, desc }) {
   return (
     <div className="service-card">
       {badge && <span className="service-card-badge">{badge}</span>}
-
       <div className="service-icon">{icon}</div>
-
       <h3>{title}</h3>
-
       <p>{desc}</p>
     </div>
   );
@@ -18,9 +15,7 @@ function ServiceCard({ icon, badge, title, desc }) {
 
 function Services() {
   const { t, i18n } = useTranslation();
-  const currentLang = i18n.language;
 
-  // مصفوفة الخدمات معتمدة تماماً على نظام الترجمة t
   const services = [
     {
       icon: "📅",
@@ -64,7 +59,7 @@ function Services() {
   return (
     <section id="services" className="services-section">
       <div className="services-container">
-
+        
         <div className="services-header">
           <span className="services-badge">
             {t("servicesBadge")}

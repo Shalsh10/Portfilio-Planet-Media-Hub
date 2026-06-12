@@ -3,36 +3,40 @@
 .portfolio-section {
   width: 100%;
   min-height: 100vh;
-  padding: 90px 24px 120px;
-  /* الخلفية سوداء ملكية صافية تتناسب مع الهوية */
+  padding: 100px 0;
   background: #000000;
   font-family: "Cairo", sans-serif;
-  direction: rtl;
   overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
 .portfolio-container {
-  max-width: 1210px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 0 8%; /* متناسق هندسياً بنسبة 100% مع باقي سكاشن النظام */
+  box-sizing: border-box;
 }
 
 .portfolio-header {
   text-align: center;
-  margin-bottom: 34px;
+  margin-bottom: 40px;
 }
 
 .portfolio-badge {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   padding: 8px 18px;
   border-radius: 999px;
-  /* بادج داكن متناسق مع الخلفية */
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #ffffff;
   font-size: 13px;
   font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .portfolio-badge::before {
@@ -40,15 +44,15 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #ffffff; /* النقطة باللون الأبيض */
+  background: #ffffff;
 }
 
 .portfolio-header h2 {
-  margin: 18px 0 8px;
-  color: #ffffff; /* عنوان أبيض ناصع */
-  font-size: clamp(34px, 4vw, 52px);
+  margin: 0 0 12px 0;
+  color: #ffffff;
+  font-size: clamp(30px, 4vw, 46px);
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 .portfolio-header h2 span {
@@ -56,32 +60,33 @@
 }
 
 .portfolio-header p {
+  max-width: 620px;
   margin: 0 auto;
-  color: rgba(255, 255, 255, 0.6); /* رمادي فاتح مريح للعين */
+  color: rgba(255, 255, 255, 0.6);
   font-size: 15px;
   font-weight: 500;
+  line-height: 1.6;
 }
 
-.portfolio-logo {
-  width: 120px;
-  height: auto;
-  object-fit: contain;
-  margin-top: 18px;
-  opacity: 0.8; /* زيادة الشفافية قليلاً ليظهر اللوجو الأبيض بوضوح */
-}
-
-/* الأزرار / الفلاتر */
-.portfolio-filters {
-  margin: 34px auto 46px;
+/* --- الفلاتر وأزرار التحكم --- */
+.portfolio-filters-wrapper {
+  width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
+}
+
+.portfolio-filters {
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+  flex-wrap: wrap; /* التوزيع المرن للأزرار عند التصغير */
 }
 
 .portfolio-filters button {
   border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 10px 22px;
+  padding: 10px 24px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.8);
@@ -89,10 +94,9 @@
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  transition: .3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* عند تمرير الماوس أو تفعيل الفلتر ينعكس للأبيض الناصع */
 .portfolio-filters button:hover,
 .portfolio-filters button.active {
   background: #ffffff;
@@ -102,38 +106,37 @@
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
 }
 
+/* --- شبكة المشاريع الاحترافية --- */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  align-items: start;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  align-items: stretch; /* الحفاظ على طول كروت موحد تلقائياً في السطر الواحدة */
 }
 
-/* الكارد البورتفوليو */
+/* --- الكارت --- */
 .project-card {
   display: flex;
   flex-direction: column;
-  height: 420px;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
-  /* كارد أسود بدرجة دقيقة جداً ليفصل عن خلفية الصفحة الأساسية */
-  background: #0b0b0b;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: .35s ease;
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* تأثير الـ Hover على الكارد */
 .project-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.3); /* توهج الحد الخارجي باللون الأبيض */
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
 }
 
+/* --- غلاف الصورة المتجاوب --- */
 .project-image-wrapper {
   position: relative;
   width: 100%;
-  height: 70%;
+  aspect-ratio: 16 / 11; /* حماية أبعاد الصورة من الانضغاط أو التشويه */
   overflow: hidden;
   background: #000000;
 }
@@ -142,45 +145,43 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.9; /* تعتيم بسيط جداً للصور لتماشي المود المظلم */
-  transition: .45s ease;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-card:hover .project-image-wrapper img {
-  transform: scale(1.08);
-  opacity: 1; /* وضوح كامل للصورة عند الهوفر */
+  transform: scale(1.06);
 }
 
-/* تصنيف المشروع داخل الصورة */
+/* التاغ الخاص بالقسم داخل الكارد */
 .project-category {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 2;
-  padding: 6px 14px;
+  top: 15px;
+  padding: 6px 16px;
   border-radius: 999px;
-  /* خلفية بيضاء بتكست أسود داخل الصورة لتباين قوي */
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   color: #000000;
   font-size: 11px;
   font-weight: 800;
   backdrop-filter: blur(10px);
+  z-index: 2;
 }
 
-/* الجزء السفلي من الكارد */
+/* ضبط موضع التاغ ديناميكياً حسب اتجاه لغة الموقع الحالية */
+html[dir="rtl"] .project-category { left: auto; right: 15px; }
+html[dir="ltr"] .project-category { right: auto; left: 15px; }
+
+/* --- تفاصيل الكارت السفلي --- */
 .project-card-body {
-  padding: 16px 20px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 30%;
-  background: #0b0b0b; /* متناسق مع جسم الكارد الداكن */
+  flex-grow: 1; /* جعل النصوص تملأ المساحة الباقية بذكاء */
 }
 
 .project-card-body h3 {
-  margin: 0 0 8px;
-  color: #ffffff; /* اسم المشروع بالأبيض */
-  font-size: 17px;
+  margin: 0 0 12px 0;
+  color: #ffffff;
+  font-size: 18px;
   font-weight: 800;
   line-height: 1.4;
   white-space: nowrap;
@@ -188,16 +189,20 @@
   text-overflow: ellipsis;
 }
 
+html[dir="rtl"] .project-card-body h3 { text-align: right; }
+html[dir="ltr"] .project-card-body h3 { text-align: left; }
+
 .project-card-footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: auto; /* دفع الفوتر لأسفل الكارت دائماً */
 }
 
 .project-short-desc {
   margin: 0;
-  color: rgba(255, 255, 255, 0.55); /* وصف المشروع بلون رمادي ناعم */
+  color: rgba(255, 255, 255, 0.5);
   font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
@@ -206,43 +211,85 @@
   flex: 1;
 }
 
-/* زر عرض المزيد */
+html[dir="rtl"] .project-short-desc { text-align: right; }
+html[dir="ltr"] .project-short-desc { text-align: left; }
+
+/* زر التفاصيل والمزيد */
 .show-more-btn {
-  color: #ffffff; /* رابط أبيض */
+  color: #ffffff;
   text-decoration: none;
   font-size: 13px;
   font-weight: 800;
   white-space: nowrap;
-  transition: .3s ease;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .show-more-btn:hover {
   color: rgba(255, 255, 255, 0.7);
-  transform: translateX(-4px); /* حركة ذكية متناسقة مع اتجاه الـ RTL */
 }
 
-/* التصميم المتجاوب للشاشات (Responsive) */
-@media (max-width: 992px) {
+/* حركة انزلاق الزر التفاعلية بما يطابق اتجاه القراءة */
+html[dir="rtl"] .show-more-btn:hover { transform: translateX(-4px); }
+html[dir="ltr"] .show-more-btn:hover { transform: translateX(4px); }
+
+/* حالات التحميل والأخطاء */
+.portfolio-loading, .portfolio-error {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 40px 0;
+}
+.portfolio-error { color: #ef4444; }
+
+
+/* ==========================================================================
+   💻 Breakpoints وتوافق الشاشات البروفيشنال
+   ========================================================================== */
+
+/* --- 💻 أجهزة اللاب توب والشاشات المتوسطة (1024px وأقل) --- */
+@media (max-width: 1024px) {
+  .portfolio-container { padding: 0 5%; }
+  .portfolio-grid { gap: 20px; }
+  .project-card-body { padding: 20px; }
+  .project-card-body h3 { font-size: 16px; }
+}
+
+/* --- 📑 شاشات التابلت والأيباد (920px وأقل) --- */
+@media (max-width: 920px) {
+  .portfolio-section { padding: 80px 0; }
+  /* تحويل شبكة العرض إلى عمودين بدلاً من ثلاثة لعرض مريح للعين */
   .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
   }
 }
 
+/* --- 📱 شاشات التابلت الصغير والموبايل العريض (640px وأقل) --- */
 @media (max-width: 640px) {
-  .portfolio-section {
-    padding: 70px 18px 90px;
-  }
-
   .portfolio-filters {
-    flex-wrap: wrap;
     gap: 8px;
   }
-
+  .portfolio-filters button {
+    padding: 8px 18px;
+    font-size: 12.5px;
+  }
+  /* كروت بعمود واحد عريض مريح للموبايل لمنع اختناق العناوين والوصف */
   .portfolio-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
+  .portfolio-header { margin-bottom: 30px; }
+  .portfolio-filters-wrapper { margin-bottom: 35px; }
+}
 
-  .project-card {
-    height: 390px;
-  }
+/* --- 📱 شاشات الهواتف الصغيرة (420px وأقل) --- */
+@media (max-width: 420px) {
+  .portfolio-container { padding: 0 6%; }
+  .portfolio-header h2 { font-size: 26px; }
+  .portfolio-header p { font-size: 14px; }
+  .project-card-body { padding: 18px; }
+  .project-card-body h3 { font-size: 15px; }
 }

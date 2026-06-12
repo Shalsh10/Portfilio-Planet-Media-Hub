@@ -10,9 +10,7 @@ function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  // ========================================================
   // بيانات احتياطية مترجمة تظهر باللغة المناسبة فوراً في حال تعطل الـ API
-  // ========================================================
   const fallbackData = [
     {
       name: t("fb1Name"),
@@ -37,9 +35,6 @@ function Testimonials() {
     }
   ];
 
-  // =========================
-  // GET TESTIMONIALS API
-  // =========================
   useEffect(() => {
     fetch("https://plant.solvextechnology.net/public/api/testimonials")
       .then((res) => res.json())
@@ -56,16 +51,13 @@ function Testimonials() {
         setTestimonials(fallbackData);
         setLoading(false);
       });
-  }, [t]); // التحديث عند تغيير اللغة لضمان استقرار الفولباك
+  }, [t]);
 
-  // =========================
-  // LOADING
-  // =========================
   if (loading) {
     return (
       <section className="testimonials-section">
         <div className="testimonials-container">
-          <h2 style={{ color: "#000", textAlign: "center", fontFamily: "Cairo" }}>
+          <h2 className="testimonials-loading-text">
             {t("testimonialsLoading")}
           </h2>
         </div>
@@ -76,7 +68,6 @@ function Testimonials() {
   const finalData = testimonials.length > 0 ? testimonials : fallbackData;
   const rawActive = finalData[activeIndex] || fallbackData[0];
 
-  // دمج الذكاء اللغوي لقراءة بيانات السيرفر المترجمة مستقبلاً أو الفولباك الحالي
   const active = {
     name: currentLang === "en" ? (rawActive.name_en || rawActive.name) : (rawActive.name_ar || rawActive.name),
     position: currentLang === "en" ? (rawActive.position_en || rawActive.role_en || rawActive.position || rawActive.role) : (rawActive.position_ar || rawActive.role_ar || rawActive.position || rawActive.role),
@@ -85,9 +76,6 @@ function Testimonials() {
     image_url: rawActive.image_url
   };
 
-  // =========================
-  // NEXT & PREV
-  // =========================
   const nextTestimonial = () => {
     setActiveIndex((prev) => (prev + 1) % finalData.length);
   };
@@ -97,7 +85,7 @@ function Testimonials() {
   };
 
   const getInitial = (name) => {
-    return name?.charAt(0) || "P";
+    return name?.trim()?.charAt(0)?.toUpperCase() || "P";
   };
 
   const colors = ["#000000", "#111111", "#222222", "#333333"];
@@ -143,7 +131,7 @@ function Testimonials() {
                 )}
               </div>
 
-              <div>
+              <div className="client-meta">
                 <h3>{active.name}</h3>
                 <p>
                   {active.position}
@@ -158,7 +146,9 @@ function Testimonials() {
 
         {/* ================= CONTROLS ================= */}
         <div className="testimonial-controls">
-          <button onClick={prevTestimonial}>‹</button>
+          <button className="control-arrow prev" onClick={prevTestimonial}>
+            {currentLang === "en" ? "‹" : "›"}
+          </button>
 
           <div className="testimonial-dots">
             {finalData.map((_, index) => (
@@ -170,7 +160,9 @@ function Testimonials() {
             ))}
           </div>
 
-          <button onClick={nextTestimonial}>›</button>
+          <button className="control-arrow next" onClick={nextTestimonial}>
+            {currentLang === "en" ? "›" : "‹"}
+          </button>
         </div>
 
         {/* ================= CLIENTS LIST ================= */}
@@ -185,7 +177,7 @@ function Testimonials() {
                 className={`client-tab ${activeIndex === index ? "active" : ""}`}
                 onClick={() => setActiveIndex(index)}
               >
-                <div>
+                <div className="tab-text">
                   <h4>{cName}</h4>
                   <p>{cCompany}</p>
                 </div>
@@ -196,7 +188,7 @@ function Testimonials() {
                       src={client.image_url} 
                       alt={cName} 
                       className="client-tab-real-image" 
-                  />
+                    />
                   ) : (
                     <span
                       className="client-tab-avatar"
