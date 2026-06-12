@@ -153,10 +153,10 @@
   flex: 1;
   position: relative;
   max-width: 585px;
-  min-height: 525px;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* ⚠️ تم حذف الـ min-height الكبيرة من هنا لتجنب تمدد البوكس */
 }
 
 .about-image-box img {
@@ -166,7 +166,7 @@
   object-position: center;
   display: block;
   border-radius: 24px;
-  border: 1px solid #222;
+  /* ⚠️ تم حذف الـ border من هنا ليختفي تماماً */
 }
 
 .exp-badge {
@@ -239,7 +239,7 @@
 
   .about-image-box {
     width: 100%;
-    min-height: auto;
+    /* ⚠️ تم حذف الـ min-height من هنا */
   }
 }
 
