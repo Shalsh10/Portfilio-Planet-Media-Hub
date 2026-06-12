@@ -1,24 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght=400;500;600;700;800;900&display=swap");
 
 .services-section {
   position: relative;
   padding: 100px 0;
-  background: #000000; /* تماشياً مع الخلفية السوداء الفخمة للموقع */
+  background: #ffffff; /* خلفية الصفحة بيضاء صافية ونقية */
   font-family: "Cairo", sans-serif;
-  color: #ffffff;
+  color: #000000; /* تغيير النص الأساسي للون الأسود */
   overflow: hidden;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .services-container {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 8%; /* مسافة أمان جانبية متناسقة مع الهيرو */
+  padding: 0 8%; /* مسافة أمان متناسقة مع البورتفوليو وباقي الأقسام */
   box-sizing: border-box;
 }
 
-/* --- Header --- */
+/* --- الهيدر وعناوين القسم --- */
 .services-header {
   text-align: center;
   max-width: 700px;
@@ -32,9 +33,9 @@
   gap: 8px;
   padding: 8px 20px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  background: #f1f1f1; /* بادج رمادي فاتح مريح يتناسب مع الخلفية البيضاء */
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #000000;
   font-size: 13px;
   font-weight: 800;
 }
@@ -44,55 +45,55 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #ffffff;
+  background: #000000;
 }
 
 .services-header h2 {
   margin: 20px 0 14px;
-  font-size: clamp(32px, 4.5vw, 54px); /* حجم خط ديناميكي مرن */
+  color: #000000; /* العنوان الرئيسي بالأسود الناصع */
+  font-size: clamp(32px, 4.5vw, 48px);
   font-weight: 900;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 .services-header h2 span {
-  color: #ffffff;
+  color: #000000;
   display: inline-block;
-  margin: 0 8px;
+  margin: 0 4px;
 }
 
 .services-header p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: clamp(14px, 1.6vw, 17px);
+  color: #555555; /* وصف رمادي غامق أنيق يسهل القراءة */
+  font-size: clamp(14px, 1.6vw, 16px);
   line-height: 1.7;
   font-weight: 500;
 }
 
-/* --- Services Grid --- */
+/* --- شبكة التوزيع الذكية للكروت --- */
 .services-grid {
   display: grid;
-  /* توزيع تلقائي ذكي: ينشئ أعمدة لا تقل عن 320px وتملأ المساحة المتاحة بالتساوي */
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 30px;
   width: 100%;
 }
 
-/* --- Service Card --- */
+/* --- الكارت الأسود الفخم الملكي --- */
 .service-card {
   position: relative;
-  background: #0d0d0d;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 20px;
-  padding: 40px 30px;
+  background: #0b0b0b; /* لون الكارد أسود غامق ملكي */
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 24px; /* حواف ناعمة واحترافية كالصورة تماماً */
+  padding: 45px 35px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* محاذاة العناصر للبداية (تدعم اتجاه اللغة) */
-  text-align: start;
+  align-items: flex-start;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* ظلال خفيفة تفصل الكارت عن الباكجراوند */
+  box-sizing: border-box;
 }
 
-/* دعم قلب اتجاه المحاذاة حسب لغة الموقع تلقائياً */
+/* دعم قلب اتجاه النصوص والمحاذاة ديناميكياً مع اللغات */
 html[dir="rtl"] .service-card {
   align-items: flex-start;
   text-align: right;
@@ -102,70 +103,70 @@ html[dir="ltr"] .service-card {
   text-align: left;
 }
 
+/* تأثير الـ Hover الاحترافي (ارتفاع مع توهج ناعم مذهل دون قلب الألوان) */
 .service-card:hover {
   transform: translateY(-8px);
-  background: #ffffff;
-  border-color: #ffffff;
-  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+  background: #000000; /* يزداد عمقاً سواداً عند الوقوف عليه */
+  border-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
 }
 
+/* الأيقونة داخل الكارد */
 .service-icon {
-  font-size: 35px;
+  font-size: 32px;
   margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 65px;
-  height: 65px;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.05); /* خلفية داكنة خفيفة للأيقونة */
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff; /* لون الأيقونة أبيض ناصع */
   transition: all 0.3s ease;
 }
 
 .service-card:hover .service-icon {
-  background: rgba(0, 0, 0, 0.05);
-  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
 
+/* عناوين الخدمات داخل الكارد */
 .service-card h3 {
   margin: 0 0 12px 0;
   font-size: 20px;
   font-weight: 800;
-  color: #ffffff;
+  color: #ffffff; /* النصوص بيضاء ناصعة متباينة بقوة داخل السواد */
   transition: color 0.3s ease;
 }
 
-.service-card:hover h3 {
-  color: #000000;
-}
-
+/* وصف الخدمة */
 .service-card p {
   margin: 0;
   font-size: 14px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.6); /* رمادي ناعم مريح للعين داخل الكارد المظلم */
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .service-card:hover p {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.75); /* يزداد وضوح الوصف قليلاً عند الـ Hover */
 }
 
-/* البادج الصغير فوق الكارت */
+/* البادج الصغير الذكي الملتصق بأعلى الكارت */
 .service-card-badge {
   position: absolute;
   top: 25px;
-  /* ضبط موضع البادج ليدعم اليمين واليسار بشكل هندسي دقيق حسب اللغة */
-  right: 25px;
-  background: linear-gradient(135deg, #222, #11);
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
   padding: 5px 14px;
   border-radius: 30px;
   font-size: 11px;
   font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
 }
 
@@ -173,30 +174,32 @@ html[dir="rtl"] .service-card-badge {
   right: auto;
   left: 25px;
 }
+html[dir="ltr"] .service-card-badge {
+  left: auto;
+  right: 25px;
+}
 
 .service-card:hover .service-card-badge {
-  background: #000000;
-  border-color: #000000;
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
 }
 
 /* ==========================================================================
-   💻 Breakpoints التجاوب مع شاشات الأجهزة الذكية المختلفة
+   💻 Breakpoints التجاوب الاحترافي الكامل مع شاشات الأجهزة
    ========================================================================== */
 
-/* --- 💻 الشاشات المتوسطة واللابتوب (1024px وأقل) --- */
 @media (max-width: 1024px) {
   .services-section { padding: 80px 0; }
   .services-container { padding: 0 5%; }
   .services-header { margin-bottom: 45px; }
   .services-grid { gap: 24px; }
-  .service-card { padding: 35px 25px; }
+  .service-card { padding: 40px 30px; }
 }
 
-/* --- 📑 شاشات التابلت والأيباد (768px وأقل) --- */
 @media (max-width: 768px) {
   .services-section { padding: 70px 0; }
   .services-header { margin-bottom: 40px; }
-  /* تقليص الحد الأدنى للكارت لكي يتناسب كارتين في الصف على شاشة التابلت */
   .services-grid { 
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px; 
@@ -204,25 +207,23 @@ html[dir="rtl"] .service-card-badge {
   .service-card h3 { font-size: 18px; }
 }
 
-/* --- 📱 شاشات الهواتف والموبايل (480px وأقل) --- */
 @media (max-width: 480px) {
   .services-section { padding: 60px 0; }
   .services-container { padding: 0 6%; }
   .services-header { margin-bottom: 30px; }
   
-  /* تحويل الشبكة لعمود واحد صريح ومريح جداً للموبايل */
   .services-grid { 
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: 1fr; /* عمود واحد كامل مريح جداً للموبايل لمنع ضغط النصوص */
+    gap: 18px;
   }
   
   .service-card { 
-    padding: 30px 20px; 
-    border-radius: 16px;
+    padding: 35px 24px; 
+    border-radius: 20px;
   }
   
   .service-icon {
-    font-size: 30px;
+    font-size: 28px;
     width: 55px;
     height: 55px;
     margin-bottom: 18px;
@@ -230,13 +231,10 @@ html[dir="rtl"] .service-card-badge {
   
   .service-card-badge {
     top: 20px;
-    right: 20px;
     font-size: 10px;
-    padding: 4px 10px;
+    padding: 4px 12px;
   }
   
-  html[dir="rtl"] .service-card-badge {
-    right: auto;
-    left: 20px;
-  }
+  html[dir="rtl"] .service-card-badge { right: auto; left: 20px; }
+  html[dir="ltr"] .service-card-badge { left: auto; right: 20px; }
 }
