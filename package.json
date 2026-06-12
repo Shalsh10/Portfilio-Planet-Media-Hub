@@ -1,6 +1,4 @@
 {
-  "homepage": "https://Shalsh10.github.io/planet-media",
-  "name": "planet-media",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
